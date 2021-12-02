@@ -39,7 +39,7 @@ public class GuestController {
                 "Имя гостя: " + name + "\n" +
                 "Название отеля: " +  hotelName + "\n" +
                 "Стоимость за одну ночь: " +  pricePerNight + "\n" +
-                "Период проживания: " + stayTime + " ночей\n" +
+                "Период проживания: " + stayTime + " ночи\n" +
                 "Стоимость проживания за весь период (грн.): " + roundedPayment;
 
         view.getOutput(output);
