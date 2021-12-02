@@ -1,13 +1,13 @@
 package utils;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Validator {
 
-    private static final Set<Integer> VALUES = Set.of(
-            1, 2, 3, 4, 5
-    );
+    private static final Set<Integer> VALUES = Set.of(1, 2, 3, 4, 5);
+
     public static String validateName(Scanner scanner) {
         String str = scanner.nextLine().trim();
         while (str.isEmpty()) {
@@ -19,16 +19,26 @@ public class Validator {
 
     public static int validateIntInput(Scanner scanner) {
 
+        int inputData;
+        String testString = null;
+
         while (!scanner.hasNextInt()) {
             String str = scanner.nextLine().trim();
             System.out.printf("\"%s\" - не число!\nВведите значение ещё раз: \n", str);
         }
-        int inputData = scanner.nextInt();
-        while (inputData <= 0) {
+
+        inputData = scanner.nextInt();
+
+        while (inputData < 0) {
             System.out.println("Неверное значение! Введите ещё раз: ");
             while (!scanner.hasNextInt()) {
-                String str = scanner.next().trim();
-                System.out.printf("\"%s\" - не число!\nВведите целое значение: ", str);
+                try {
+                    testString = scanner.next().trim();
+                }
+                catch (InputMismatchException ex) {
+                    System.out.printf("\"%s\" - не число!\nВведите целое значение: ", testString);
+                }
+
             }
             inputData = scanner.nextInt();
         }
@@ -36,16 +46,26 @@ public class Validator {
     }
 
     public static double validateDoubleInput(Scanner scanner) {
+
+        double inputData;
+        String testString = null;
+
         while (!scanner.hasNextDouble()) {
             String str = scanner.nextLine().trim();
             System.out.printf("\"%s\" - не число!\nВведите значение: ", str);
         }
-        double inputData = scanner.nextDouble();
-        while (inputData <= 0) {
+
+        inputData = scanner.nextDouble();
+
+        while (inputData < 0) {
             System.out.print("Неверное значение! Введите ещё раз: ");
             while (!scanner.hasNextDouble()) {
-                String str = scanner.nextLine().trim();
-                System.out.printf("\"%s\" - не число!\nВведите значение: ", str);
+                try {
+                    testString = scanner.nextLine().trim();
+                }
+                catch (InputMismatchException ex) {
+                    System.out.printf("\"%s\" - не число!\nВведите значение: ", testString);
+                }
             }
             inputData = scanner.nextDouble();
         }
@@ -53,16 +73,26 @@ public class Validator {
     }
 
     public static int validateStarsNumber(Scanner scanner) {
+
+        int inputData;
+        String testString = null;
         while (!scanner.hasNextInt()) {
             String str = scanner.nextLine().trim();
             System.out.printf("\"%s\" - не число!\nВведите значение ещё раз: ", str);
         }
-        int inputData = scanner.nextInt();
+
+        inputData = scanner.nextInt();
+
         while (VALUES.contains(inputData)) {
             System.out.println("Такого варианта нет! Введите ещё раз: ");
             while (!scanner.hasNextInt()) {
-                String str = scanner.next().trim();
-                System.out.printf("\"%s\" - не число!\n\"Введите значение: \"", str);
+                try {
+                    testString = scanner.next().trim();
+                }
+                catch (InputMismatchException ex) {
+                    System.out.printf("\"%s\" - не число!\n\"Введите значение: \"", testString);
+                }
+
             }
             inputData = scanner.nextInt();
         }
