@@ -11,7 +11,6 @@ public class Guest implements Payment, Pricing {
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
 
-
     public String getName() {return name; }
     public void setName(String name) {this.name = name; }
 
