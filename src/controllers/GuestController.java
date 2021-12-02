@@ -38,7 +38,7 @@ public class GuestController {
         String output = "------------------------------\n" +
                 "Имя гостя: " + name + "\n" +
                 "Название отеля: " +  hotelName + "\n" +
-                "Стоимость за одну ночь: " +  pricePerNight + "\n" +
+                "Стоимость за одну ночь (грн.): " +  pricePerNight + "\n" +
                 "Период проживания: " + stayTime + " ночей\n" +
                 "Стоимость проживания за весь период (грн.): " + roundedPayment;
 
