@@ -34,8 +34,9 @@ public class Guest implements Payment, Pricing {
     }
 
     @Override
-    public double calculatePayment(double price, int guestNumber, int kidsNumber, int nightsNumber) {
-        return calculatePayment(price, guestNumber, nightsNumber) +  calculatePayment(price, kidsNumber, nightsNumber);
+    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int nightsNumber) {
+        return calculatePayment(price, guestsNumber, nightsNumber) +
+                calculatePayment(price, kidsNumber, nightsNumber) * 0.5;
     }
 
     @Override
