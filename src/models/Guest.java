@@ -14,6 +14,7 @@ public class Guest implements Payment, Pricing {
     private final static int PRICE_BASE = 10000;
     private final static double STAR_RATE = 0.1;
     private final static double KIDS_RATE = 0.5;
+    private final static double PETS_RATE = 1.2;
 
 
     public String getName() {return name; }
@@ -43,7 +44,8 @@ public class Guest implements Payment, Pricing {
     @Override
     public double calculatePayment(double price, int guestsNumber, int kidsNumber, int petsNumber, int nightsNumber) {
         return calculatePayment(price, guestsNumber, nightsNumber) +
-                calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE;
+                calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE +
+                calculatePayment(price, petsNumber, nightsNumber) * PETS_RATE;
     }
 
     @Override
