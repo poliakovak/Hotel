@@ -1,7 +1,8 @@
 package models;
 
+import base.Payment;
 
-public class GuestModel {
+public class GuestModel implements Payment {
 
     private String name;
     private int nightsNumber;
@@ -19,4 +20,9 @@ public class GuestModel {
 
     public int getStarsNumber() {return starsNumber; }
     public void setStarsNumber(int starsNumber) {this.starsNumber = starsNumber;}
+
+    @Override
+    public double calculatePayment(int starsNumber, int guestNumber, int nightsNumber) {
+        return 0;
+    }
 }
