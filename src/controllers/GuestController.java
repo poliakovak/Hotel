@@ -32,8 +32,8 @@ public class GuestController {
         String hotelName = hotelNames.get(model.getStarsNumber());
         double pricePerNight = model.calculatePrice(model.getStarsNumber());
 
-        double totalPayment = model.calculatePayment(pricePerNight,
-                model.getGuestsNumber(), model.getNightsNumber());
+        double totalPayment = model.calculatePayment(pricePerNight, model.getGuestsNumber(),
+                model.getKidsNumber(), model.getNightsNumber());
 
         String roundedPayment = Rounder.roundValue(totalPayment);
 
@@ -41,7 +41,7 @@ public class GuestController {
                 "Имя гостя: " + name + "\n" +
                 "Название отеля: " +  hotelName + "\n" +
                 "Стоимость за одну ночь (грн.): " +  pricePerNight + "\n" +
-                "Период проживания: " + stayTime + " ночей\n" +
+                "Период проживания (ночей): " + stayTime + "\n" +
                 "Стоимость проживания за весь период (грн.): " + roundedPayment;
 
         view.getOutput(output);
