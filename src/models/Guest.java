@@ -9,6 +9,7 @@ public class Guest implements Payment, Pricing {
     private int nightsNumber;
     private int guestsNumber;
     private int kidsNumber;
+    private int petsNumber;
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
     private final static double STAR_RATE = 0.1;
@@ -29,6 +30,10 @@ public class Guest implements Payment, Pricing {
 
     public int getKidsNumber() {return kidsNumber; }
     public void setKidsNumber(int kidsNumber) {this.kidsNumber = kidsNumber; }
+
+    public int getPetsNumber() {return petsNumber; }
+
+    public void setPetsNumber(int petsNumber) {this.petsNumber = petsNumber; }
 
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
