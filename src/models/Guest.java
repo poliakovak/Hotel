@@ -8,6 +8,7 @@ public class Guest implements Payment, Pricing {
     private String name;
     private int nightsNumber;
     private int guestsNumber;
+    private int kidsNumber;
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
 
@@ -23,6 +24,9 @@ public class Guest implements Payment, Pricing {
 
     public int getStarsNumber() {return starsNumber; }
     public void setStarsNumber(int starsNumber) {this.starsNumber = starsNumber;}
+
+    public int getKidsNumber() {return kidsNumber; }
+    public void setKidsNumber(int kidsNumber) {this.kidsNumber = kidsNumber; }
 
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
