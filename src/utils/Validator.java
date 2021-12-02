@@ -21,16 +21,14 @@ public class Validator {
 
         while (!scanner.hasNextInt()) {
             String str = scanner.nextLine().trim();
-            System.out.printf("\"%s\" - не число!\n", str);
-            System.out.print("Введите значение ещё раз: ");
+            System.out.printf("\"%s\" - не число!\nВведите значение ещё раз: \n", str);
         }
         int inputData = scanner.nextInt();
         while (inputData <= 0) {
             System.out.println("Неверное значение! Введите ещё раз: ");
             while (!scanner.hasNextInt()) {
                 String str = scanner.next().trim();
-                System.out.printf("\"%s\" - не число!\n", str);
-                System.out.println("Введите целое значение: ");
+                System.out.printf("\"%s\" - не число!\nВведите целое значение: ", str);
             }
             inputData = scanner.nextInt();
         }
@@ -40,16 +38,14 @@ public class Validator {
     public static double validateDoubleInput(Scanner scanner) {
         while (!scanner.hasNextDouble()) {
             String str = scanner.nextLine().trim();
-            System.out.printf("\"%s\" - не число!\n", str);
-            System.out.print("Введите значение: ");
+            System.out.printf("\"%s\" - не число!\nВведите значение: ", str);
         }
         double inputData = scanner.nextDouble();
         while (inputData <= 0) {
             System.out.print("Неверное значение! Введите ещё раз: ");
             while (!scanner.hasNextDouble()) {
                 String str = scanner.nextLine().trim();
-                System.out.printf("\"%s\" - не число!\n", str);
-                System.out.print("Введите значение: ");
+                System.out.printf("\"%s\" - не число!\nВведите значение: ", str);
             }
             inputData = scanner.nextDouble();
         }
@@ -59,16 +55,14 @@ public class Validator {
     public static int validateStarsNumber(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             String str = scanner.nextLine().trim();
-            System.out.printf("\"%s\" - не число!\n", str);
-            System.out.print("Введите значение ещё раз: ");
+            System.out.printf("\"%s\" - не число!\nВведите значение ещё раз: ", str);
         }
         int inputData = scanner.nextInt();
         while (VALUES.contains(inputData)) {
             System.out.println("Такого варианта нет! Введите ещё раз: ");
             while (!scanner.hasNextInt()) {
                 String str = scanner.next().trim();
-                System.out.printf("\"%s\" - не число!\n", str);
-                System.out.println("Введите значение: ");
+                System.out.printf("\"%s\" - не число!\n\"Введите значение: \"", str);
             }
             inputData = scanner.nextInt();
         }
