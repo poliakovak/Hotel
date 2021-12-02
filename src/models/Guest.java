@@ -31,6 +31,9 @@ public class Guest implements Payment, Pricing {
 
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
+        if (nightsNumber == 1) {
+            nightsNumber -= nightsNumber * 0.3;
+        }
         return price * guestNumber * nightsNumber;
     }
 
