@@ -1,13 +1,15 @@
 package models;
 
 import base.Payment;
+import base.Pricing;
 
-public class GuestModel implements Payment {
+public class Guest implements Payment, Pricing {
 
     private String name;
     private int nightsNumber;
     private int guestsNumber;
     private int starsNumber;
+    private final static int PRICE_BASE = 10000;
 
     public String getName() {return name; }
     public void setName(String name) {this.name = name; }
@@ -23,6 +25,11 @@ public class GuestModel implements Payment {
 
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
-        return 0;
+        return price * guestNumber * nightsNumber;
+    }
+
+    @Override
+    public double calculatePrice(int starsNumber) {
+        return PRICE_BASE * starsNumber;
     }
 }
