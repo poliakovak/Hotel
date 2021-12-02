@@ -31,8 +31,10 @@ public class GuestController {
         String stayTime = String.valueOf(model.getNightsNumber());
         String hotelName = hotelNames.get(model.getStarsNumber());
         double pricePerNight = model.calculatePrice(model.getStarsNumber());
+
         double totalPayment = model.calculatePayment(pricePerNight,
                 model.getGuestsNumber(), model.getNightsNumber());
+
         String roundedPayment = Rounder.roundValue(totalPayment);
 
         String output = "------------------------------\n" +
