@@ -31,6 +31,6 @@ public class Guest implements Payment, Pricing {
 
     @Override
     public double calculatePrice(int starsNumber) {
-        return PRICE_BASE * starsNumber;
+        return PRICE_BASE * starsNumber * 0.1;
     }
 }
