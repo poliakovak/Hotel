@@ -1,6 +1,6 @@
 package views;
 
-import views.GuestView;
+import models.Guest;
 
 public class GuestView {
 }
