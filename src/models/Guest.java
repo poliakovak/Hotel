@@ -41,7 +41,7 @@ public class Guest implements Payment, Pricing {
     }
 
     @Override
-    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int nightsNumber) {
+    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int petsNumber, int nightsNumber) {
         return calculatePayment(price, guestsNumber, nightsNumber) +
                 calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE;
     }
