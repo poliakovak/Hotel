@@ -13,6 +13,7 @@ public class Guest implements Payment, Pricing {
     private final static int PRICE_BASE = 10000;
     private final static double STAR_RATE = 0.1;
     private final static double KIDS_RATE = 0.5;
+    private final static double SINGLE_RATE = 0.5;
 
     public String getName() {return name; }
     public void setName(String name) {this.name = name; }
@@ -32,7 +33,7 @@ public class Guest implements Payment, Pricing {
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
         if (nightsNumber == 1) {
-            nightsNumber -= nightsNumber * 0.3;
+            nightsNumber -= nightsNumber * SINGLE_RATE;
         }
         return price * guestNumber * nightsNumber;
     }
