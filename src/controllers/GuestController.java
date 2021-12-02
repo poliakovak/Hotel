@@ -33,7 +33,7 @@ public class GuestController {
         double pricePerNight = model.calculatePrice(model.getStarsNumber());
 
         double totalPayment = model.calculatePayment(pricePerNight, model.getGuestsNumber(),
-                model.getKidsNumber(), model.getNightsNumber());
+                model.getKidsNumber(), model.getPetsNumber(), model.getNightsNumber());
 
         String roundedPayment = Rounder.roundValue(totalPayment);
 

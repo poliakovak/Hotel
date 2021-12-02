@@ -13,6 +13,7 @@ public class GuestView {
     int nightsNumber;
     int guestsNumber;
     int kidsNumber;
+    int petsNumber;
     int starsNumber;
     Scanner scanner;
 
@@ -45,6 +46,11 @@ public class GuestView {
         System.out.print(title);
         kidsNumber = Validator.validateIntInput(scanner);
         model.setKidsNumber(kidsNumber);
+
+        title = "Введите количество животних: ";
+        System.out.print(title);
+        petsNumber = Validator.validateIntInput(scanner);
+        model.setPetsNumber(petsNumber);
 
         title = "Введите количество звезд: ";
         System.out.print(title);

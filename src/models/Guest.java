@@ -9,11 +9,14 @@ public class Guest implements Payment, Pricing {
     private int nightsNumber;
     private int guestsNumber;
     private int kidsNumber;
+    private int petsNumber;
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
     private final static double STAR_RATE = 0.1;
     private final static double KIDS_RATE = 0.5;
     private final static double SINGLE_RATE = 0.5;
+    private final static double PETS_RATE = 1.2;
+
 
     public String getName() {return name; }
     public void setName(String name) {this.name = name; }
@@ -30,6 +33,10 @@ public class Guest implements Payment, Pricing {
     public int getKidsNumber() {return kidsNumber; }
     public void setKidsNumber(int kidsNumber) {this.kidsNumber = kidsNumber; }
 
+    public int getPetsNumber() {return petsNumber; }
+
+    public void setPetsNumber(int petsNumber) {this.petsNumber = petsNumber; }
+
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
         if (nightsNumber == 1) {
@@ -39,9 +46,24 @@ public class Guest implements Payment, Pricing {
     }
 
     @Override
-    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int nightsNumber) {
-        return calculatePayment(price, guestsNumber, nightsNumber) +
-                calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE;
+    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int petsNumber, int nightsNumber) {
+
+        double adultsPayment = calculatePayment(price, guestsNumber);
+        double kidsPayment = calculatePayment(price, kidsNumber) * KIDS_RATE;
+        double petsPayment = calculatePayment(price, petsNumber) * PETS_RATE;
+
+        double totalPayment = adultsPayment + kidsPayment + petsPayment;
+        return calculatePayment(totalPayment, nightsNumber);
+    }
+
+    @Override
+    public double calculatePayment(double dayPrice, int nightsNumber) {
+        return dayPrice * nightsNumber;
+    }
+
+    @Override
+    public double calculateGuestPayment(double price, double guestNumber) {
+        return price * guestNumber;
     }
 
     @Override
