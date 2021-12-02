@@ -30,6 +30,10 @@ public class GuestView {
         title = "Введите количество ночей: ";
         System.out.print(title);
         nightsNumber = Validator.validateIntInput(scanner);
+        while (nightsNumber > 10) {
+            System.out.print("Бронирование ограничено до 10 ночей включительно\nВведите еще раз: ");
+            nightsNumber = Validator.validateIntInput(scanner);
+        }
         model.setNightsNumber(nightsNumber);
 
         title = "Введите количество взрослых гостей: ";
