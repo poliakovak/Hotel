@@ -11,6 +11,8 @@ public class Guest implements Payment, Pricing {
     private int kidsNumber;
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
+    private final static double STAR_RATE = 0.1;
+    private final static double KIDS_RATE = 0.5;
 
 
     public String getName() {return name; }
@@ -36,11 +38,11 @@ public class Guest implements Payment, Pricing {
     @Override
     public double calculatePayment(double price, int guestsNumber, int kidsNumber, int nightsNumber) {
         return calculatePayment(price, guestsNumber, nightsNumber) +
-                calculatePayment(price, kidsNumber, nightsNumber) * 0.5;
+                calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE;
     }
 
     @Override
     public double calculatePrice(int starsNumber) {
-        return PRICE_BASE * starsNumber * 0.1;
+        return PRICE_BASE * starsNumber * STAR_RATE;
     }
 }
