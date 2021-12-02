@@ -8,8 +8,11 @@ public class Guest implements Payment, Pricing {
     private String name;
     private int nightsNumber;
     private int guestsNumber;
+    private int kidsNumber;
     private int starsNumber;
     private final static int PRICE_BASE = 10000;
+    private final static double STAR_RATE = 0.1;
+    private final static double KIDS_RATE = 0.5;
 
     public String getName() {return name; }
     public void setName(String name) {this.name = name; }
@@ -23,13 +26,22 @@ public class Guest implements Payment, Pricing {
     public int getStarsNumber() {return starsNumber; }
     public void setStarsNumber(int starsNumber) {this.starsNumber = starsNumber;}
 
+    public int getKidsNumber() {return kidsNumber; }
+    public void setKidsNumber(int kidsNumber) {this.kidsNumber = kidsNumber; }
+
     @Override
     public double calculatePayment(double price, int guestNumber, int nightsNumber) {
         return price * guestNumber * nightsNumber;
     }
 
     @Override
+    public double calculatePayment(double price, int guestsNumber, int kidsNumber, int nightsNumber) {
+        return calculatePayment(price, guestsNumber, nightsNumber) +
+                calculatePayment(price, kidsNumber, nightsNumber) * KIDS_RATE;
+    }
+
+    @Override
     public double calculatePrice(int starsNumber) {
-        return PRICE_BASE * starsNumber * 0.1;
+        return PRICE_BASE * starsNumber * STAR_RATE;
     }
 }

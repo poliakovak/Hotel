@@ -12,6 +12,7 @@ public class GuestView {
     String name;
     int nightsNumber;
     int guestsNumber;
+    int kidsNumber;
     int starsNumber;
     Scanner scanner;
 
@@ -31,10 +32,15 @@ public class GuestView {
         nightsNumber = Validator.validateIntInput(scanner);
         model.setNightsNumber(nightsNumber);
 
-        title = "Введите количество гостей: ";
+        title = "Введите количество взрослых гостей: ";
         System.out.print(title);
         guestsNumber = Validator.validateIntInput(scanner);
         model.setGuestsNumber(guestsNumber);
+
+        title = "Введите количество детей: ";
+        System.out.print(title);
+        kidsNumber = Validator.validateIntInput(scanner);
+        model.setKidsNumber(kidsNumber);
 
         title = "Введите количество звезд: ";
         System.out.print(title);
