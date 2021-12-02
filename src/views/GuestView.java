@@ -43,7 +43,7 @@ public class GuestView {
         kidsNumber = Validator.validateIntInput(scanner);
         model.setKidsNumber(kidsNumber);
 
-        title = "Введите количество детей: ";
+        title = "Введите количество животних: ";
         System.out.print(title);
         petsNumber = Validator.validateIntInput(scanner);
         model.setPetsNumber(petsNumber);
