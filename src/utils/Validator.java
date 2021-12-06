@@ -14,6 +14,7 @@ public class Validator {
 
         String inputData;
         while (!scanner.hasNext("[а-яА-ЯёЁa-zA-Z]*")) {
+
             String str = scanner.nextLine().trim();
             System.out.print("Неверное значение! Введите имя клиента: ");
         }
@@ -89,7 +90,7 @@ public class Validator {
 
         inputData = scanner.nextInt();
 
-        while (VALUES.contains(inputData)) {
+        while (!VALUES.contains(inputData)) {
             System.out.println("Такого варианта нет! Введите ещё раз: ");
             while (!scanner.hasNextInt()) {
                 try {

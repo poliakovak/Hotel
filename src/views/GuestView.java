@@ -50,7 +50,7 @@ public class GuestView {
 
         title = "Введите количество звезд: ";
         System.out.print(title);
-        starsNumber = Validator.validateIntInput(scanner);
+        starsNumber = Validator.validateStarsNumber(scanner);
         model.setStarsNumber(starsNumber);
 
         scanner.close();
