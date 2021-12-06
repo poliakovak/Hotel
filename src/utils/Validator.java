@@ -3,18 +3,24 @@ package utils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validator {
 
     private static final Set<Integer> VALUES = Set.of(1, 2, 3, 4, 5);
 
     public static String validateName(Scanner scanner) {
-        String str = scanner.nextLine().trim();
-        while (str.isEmpty()) {
-            System.out.print("Пусто! Введите имя: ");
-            str = scanner.nextLine().trim();
+
+        String inputData;
+        while (!scanner.hasNext("[а-яА-ЯёЁa-zA-Z]*")) {
+            String str = scanner.nextLine().trim();
+            System.out.print("Пусто! Введите имя клиента: ");
         }
-        return str;
+
+        inputData = scanner.nextLine();
+        return inputData;
+
     }
 
     public static int validateIntInput(Scanner scanner) {
