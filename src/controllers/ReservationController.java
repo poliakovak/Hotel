@@ -32,5 +32,6 @@ public class ReservationController {
                 "Период проживания (ночей): " + duration + "\n";
 
         view.getOutput(output);
+
     }
 }

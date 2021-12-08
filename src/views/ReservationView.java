@@ -1,5 +1,6 @@
 package views;
 
+import exceptions.DateInputException;
 import models.Reservation;
 import utils.Validator;
 import java.text.ParseException;
@@ -46,6 +47,8 @@ public class ReservationView {
 
         } catch (ParseException e) {
             System.out.println("Неверный формат даты");
+        } catch (DateInputException e) {
+            System.out.println("Ошибка при бронировании");
         }
 
 
@@ -62,5 +65,28 @@ public class ReservationView {
 
     public void getOutput(String output) {
         System.out.println(output);
+    }
+
+    public void updateDates() {
+        title = "Хотите ли Вы изменить даты?\nДа - нажмте \"y\"\nНет - нажмте \"n\": ";
+        String userAnswer = scanner.nextLine();
+
+        while (!userAnswer.equals("y") && !userAnswer.equals("n")) {
+
+            System.out.println("Введено неверное значение. Повторите: ");
+            userAnswer = scanner.nextLine();
+        }
+
+        switch (userAnswer) {
+            case "y":
+                title = "Введите новые даты: ";
+                System.out.print(title);
+                getDates();
+            case "n":
+                title = "Даты не изменены.";
+                System.out.print(title);
+        }
+
+
     }
 }
