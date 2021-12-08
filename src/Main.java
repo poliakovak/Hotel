@@ -10,5 +10,6 @@ public class Main {
         GuestView view = new GuestView(model);
         GuestController controller = new GuestController(model, view);
         controller.runApp();
+
     }
 }
