@@ -3,8 +3,9 @@ package models;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import base.DateOperations;
 
-public class Reservation {
+public class Reservation implements DateOperations{
 
     private Integer roomNumber;
     private Date checkIn;
@@ -25,4 +26,25 @@ public class Reservation {
     }
 
 
+    @Override
+    public long calculateDuration() {
+        long diff = checkOut.getTime() - checkIn.getTime();
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+    }
+
+    @Override
+    public void updateDates(Date checkIn, Date checkOut) {
+        Date now = new Date();
+        if (checkIn.before(now) || checkOut.before(now)) {
+//            throw new DomainException("Даты бронирования для обновления " +
+//                    "должны быть датами в будущем.");
+            System.out.println("\"Даты бронирования для обновления должны быть датами в будущем.\"");
+        }
+        if (!checkOut.after(checkIn)) {
+//            throw new DomainException("Дата выезда должна быть позже даты заезда.");
+            System.out.println("Дата выезда должна быть позже даты заезда.");
+        }
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+    }
 }
