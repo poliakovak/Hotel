@@ -13,18 +13,31 @@ public class Reservation implements DateOperations{
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+//    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+//
+//        if (!checkOut.after(checkIn)) {
+//            System.out.println("Дата выезда должна быть позже даты заезда.");
+//            //throw new DomainException("Дата выезда должна быть позже даты заезда.");
+//        }
+//
+//        this.roomNumber = roomNumber;
+//        this.checkIn = checkIn;
+//        this.checkOut = checkOut;
+//    }
 
+    public Integer getRoomNumber() {return roomNumber; }
+    public void setRoomNumber(Integer roomNumber) {this.roomNumber = roomNumber; }
+
+    public Date getCheckIn() {return checkIn; }
+    public void setCheckIn(Date checkIn) {this.checkIn = checkIn; }
+
+    public Date getCheckOut() {return checkOut; }
+    public void setCheckOut(Date checkOut) {
         if (!checkOut.after(checkIn)) {
             System.out.println("Дата выезда должна быть позже даты заезда.");
             //throw new DomainException("Дата выезда должна быть позже даты заезда.");
         }
-
-        this.roomNumber = roomNumber;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-    }
-
+        this.checkOut = checkOut; }
 
     @Override
     public long calculateDuration() {
