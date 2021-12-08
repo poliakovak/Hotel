@@ -53,7 +53,7 @@ public class ReservationView {
 
     public void getRoomNumber() {
 
-        title = "Введите количество ночей: ";
+        title = "Введите номер комнаты: ";
         System.out.print(title);
         roomNumber = Validator.validateIntInput(scanner);
         model.setRoomNumber(roomNumber);
