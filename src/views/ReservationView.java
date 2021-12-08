@@ -21,14 +21,16 @@ public class ReservationView {
 
     public void getInputs() {
 
+        scanner = new Scanner(System.in);
+
         getRoomNumber();
         getDates();
+
+        scanner.close();
     }
 
     // исрользуется и для первоначального бронирования, и для обновления дат
     public void getDates() {
-
-        scanner = new Scanner(System.in);
 
         try {
 
@@ -46,20 +48,16 @@ public class ReservationView {
             System.out.println("Неверный формат даты");
         }
 
-        scanner.close();
 
     }
 
     public void getRoomNumber() {
-
-        scanner = new Scanner(System.in);
 
         title = "Введите количество ночей: ";
         System.out.print(title);
         roomNumber = Validator.validateIntInput(scanner);
         model.setRoomNumber(roomNumber);
 
-        scanner.close();
     }
 
     public void getOutput(String output) {
