@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import base.DateOperations;
+import exceptions.DateInputException;
 
 public class Reservation implements DateOperations{
 
@@ -12,18 +13,6 @@ public class Reservation implements DateOperations{
     private Date checkOut;
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-//    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
-//
-//        if (!checkOut.after(checkIn)) {
-//            System.out.println("Дата выезда должна быть позже даты заезда.");
-//            //throw new DomainException("Дата выезда должна быть позже даты заезда.");
-//        }
-//
-//        this.roomNumber = roomNumber;
-//        this.checkIn = checkIn;
-//        this.checkOut = checkOut;
-//    }
 
     public Integer getRoomNumber() {return roomNumber; }
     public void setRoomNumber(Integer roomNumber) {this.roomNumber = roomNumber; }
@@ -34,8 +23,7 @@ public class Reservation implements DateOperations{
     public Date getCheckOut() {return checkOut; }
     public void setCheckOut(Date checkOut) {
         if (!checkOut.after(checkIn)) {
-            System.out.println("Дата выезда должна быть позже даты заезда.");
-            //throw new DomainException("Дата выезда должна быть позже даты заезда.");
+            throw new DateInputException("Дата выезда должна быть позже даты заезда.");
         }
         this.checkOut = checkOut; }
 
@@ -49,13 +37,13 @@ public class Reservation implements DateOperations{
     public void updateDates(Date checkIn, Date checkOut) {
         Date now = new Date();
         if (checkIn.before(now) || checkOut.before(now)) {
-//            throw new DomainException("Даты бронирования для обновления " +
-//                    "должны быть датами в будущем.");
-            System.out.println("\"Даты бронирования для обновления должны быть датами в будущем.\"");
+            throw new DateInputException("Даты бронирования для обновления " +
+                    "должны быть датами в будущем.");
+
         }
         if (!checkOut.after(checkIn)) {
-//            throw new DomainException("Дата выезда должна быть позже даты заезда.");
-            System.out.println("Дата выезда должна быть позже даты заезда.");
+            throw new DateInputException("Дата выезда должна быть позже даты заезда.");
+
         }
         this.checkIn = checkIn;
         this.checkOut = checkOut;
