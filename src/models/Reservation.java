@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import base.DateOperations;
-import exceptions.DateInputException;
+import exceptions.InvalidDateInputException;
 
 public class Reservation implements DateOperations{
 
@@ -23,7 +23,7 @@ public class Reservation implements DateOperations{
     public Date getCheckOut() {return checkOut; }
     public void setCheckOut(Date checkOut) {
         if (!checkOut.after(checkIn)) {
-            throw new DateInputException("Дата выезда должна быть позже даты заезда.");
+            throw new InvalidDateInputException("Дата выезда должна быть позже даты заезда.");
         }
         this.checkOut = checkOut; }
 
@@ -37,12 +37,12 @@ public class Reservation implements DateOperations{
     public void updateDates(Date checkIn, Date checkOut) {
         Date now = new Date();
         if (checkIn.before(now) || checkOut.before(now)) {
-            throw new DateInputException("Даты бронирования для обновления " +
+            throw new InvalidDateInputException("Даты бронирования для обновления " +
                     "должны быть датами в будущем.");
 
         }
         if (!checkOut.after(checkIn)) {
-            throw new DateInputException("Дата выезда должна быть позже даты заезда.");
+            throw new InvalidDateInputException("Дата выезда должна быть позже даты заезда.");
 
         }
         this.checkIn = checkIn;

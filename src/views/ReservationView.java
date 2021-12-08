@@ -1,6 +1,6 @@
 package views;
 
-import exceptions.DateInputException;
+import exceptions.InvalidDateInputException;
 import models.Reservation;
 import utils.Validator;
 import java.text.ParseException;
@@ -47,7 +47,7 @@ public class ReservationView {
 
         } catch (ParseException e) {
             System.out.println("Неверный формат даты");
-        } catch (DateInputException e) {
+        } catch (InvalidDateInputException e) {
             System.out.println("Ошибка при бронировании");
         }
 
