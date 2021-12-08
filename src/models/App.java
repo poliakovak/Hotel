@@ -22,11 +22,13 @@ public class App {
         Guest model = new Guest();
         GuestView view = new GuestView(model);
         GuestController controller = new GuestController(model, view);
+        controller.runApp();
     }
 
     public void runReservation() {
         Reservation model = new Reservation();
         ReservationView view = new ReservationView(model);
         ReservationController controller = new ReservationController(model, view);
+        controller.runApp();
     }
 }
