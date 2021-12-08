@@ -109,4 +109,23 @@ public class Validator {
         return inputData;
     }
 
+    public static int validateTypeOfController(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            String str = scanner.nextLine().trim();
+            System.out.printf("\"%s\" - не число!\n", str);
+            System.out.print("Введите значение ещё раз: ");
+        }
+        int inputData = scanner.nextInt();
+        while (inputData != 1 && inputData != 2) {
+            System.out.println("Такого варианта нет! Введите ещё раз: ");
+            while (!scanner.hasNextInt()) {
+                String str = scanner.next().trim();
+                System.out.printf("\"%s\" - не число!\n", str);
+                System.out.println("Введите значение: ");
+            }
+            inputData = scanner.nextInt();
+        }
+        return inputData;
+    }
+
 }
