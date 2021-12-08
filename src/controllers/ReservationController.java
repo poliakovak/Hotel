@@ -19,6 +19,7 @@ public class ReservationController {
     public void runApp() {
 
         view.getInputs();
+        view.updateDates();
 
         String roomNumber = String.valueOf(model.getRoomNumber());
         Date checkIn = model.getCheckIn();

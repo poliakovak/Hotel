@@ -17,6 +17,7 @@ public class ReservationView {
     Date checkOut;
     Scanner scanner;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    String userAnswer;
 
     public ReservationView(Reservation model) {this.model = model; }
 
@@ -27,7 +28,6 @@ public class ReservationView {
         getRoomNumber();
         getDates();
 
-        scanner.close();
     }
 
     // исрользуется и для первоначального бронирования, и для обновления дат
@@ -68,25 +68,29 @@ public class ReservationView {
     }
 
     public void updateDates() {
+
+        scanner = new Scanner(System.in);
+
         title = "Хотите ли Вы изменить даты?\nДа - нажмте \"y\"\nНет - нажмте \"n\": ";
-        String userAnswer = scanner.nextLine();
+        System.out.println(title);
+
+        userAnswer = scanner.nextLine().trim();
 
         while (!userAnswer.equals("y") && !userAnswer.equals("n")) {
-
-            System.out.println("Введено неверное значение. Повторите: ");
-            userAnswer = scanner.nextLine();
+            System.out.print("Введено неверное значение. Попробуйте ещё раз: ");
+            userAnswer = scanner.nextLine().trim();
         }
 
         switch (userAnswer) {
             case "y":
-                title = "Введите новые даты: ";
+                title = "Введите новые даты:\n";
                 System.out.print(title);
                 getDates();
             case "n":
-                title = "Даты не изменены.";
+                title = "Даты не изменены.\n";
                 System.out.print(title);
         }
 
-
+        scanner.close();
     }
 }
