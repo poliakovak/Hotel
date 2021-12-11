@@ -33,19 +33,5 @@ public class Reservation implements DateOperations{
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    @Override
-    public void updateDates(Date checkIn, Date checkOut) {
-        Date now = new Date();
-        if (checkIn.before(now) || checkOut.before(now)) {
-            throw new InvalidDateInputException("Даты бронирования для обновления " +
-                    "должны быть датами в будущем.");
 
-        }
-        if (!checkOut.after(checkIn)) {
-            throw new InvalidDateInputException("Дата выезда должна быть позже даты заезда.");
-
-        }
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-    }
 }

@@ -6,5 +6,4 @@ public interface DateOperations {
 
     long calculateDuration();
 
-    void updateDates(Date checkIn, Date checkOut);
 }

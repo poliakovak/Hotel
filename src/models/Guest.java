@@ -37,11 +37,6 @@ public class Guest implements Payment, Pricing {
     public void setPetsNumber(int petsNumber) {this.petsNumber = petsNumber; }
 
     @Override
-    public double calculatePayment(double price, int guestNumber, int nightsNumber) {
-        return price * guestNumber * nightsNumber;
-    }
-
-    @Override
     public double calculatePayment(double price, int guestsNumber, int kidsNumber, int petsNumber, int nightsNumber) {
 
         double adultsPayment = calculatePayment(price, guestsNumber);
@@ -55,11 +50,6 @@ public class Guest implements Payment, Pricing {
     @Override
     public double calculatePayment(double dayPrice, int nightsNumber) {
         return dayPrice * nightsNumber;
-    }
-
-    @Override
-    public double calculateGuestPayment(double price, double guestNumber) {
-        return price * guestNumber;
     }
 
     @Override
