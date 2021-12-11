@@ -11,10 +11,12 @@ public class App {
     private int controllerType;
 
     public int getControllerType() {
+
         return controllerType;
     }
 
     public void setControllerType(int controllerType) {
+
         this.controllerType = controllerType;
     }
 
