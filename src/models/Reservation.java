@@ -1,6 +1,5 @@
 package models;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import base.DateOperations;
@@ -11,8 +10,6 @@ public class Reservation implements DateOperations{
     private Integer roomNumber;
     private Date checkIn;
     private Date checkOut;
-
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Integer getRoomNumber() {
         return roomNumber;
